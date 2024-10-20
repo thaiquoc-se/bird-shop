@@ -1,0 +1,70 @@
+﻿@page
+@model BirdFarmShop.Pages.RegisterModel
+@{
+}
+<head>
+    <title>Bird Farm Shop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="~/css/login.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="form-box register">
+    <h2>Register</h2>
+    <form action="#">
+        <div class="input-box">
+            <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+            <input type="text">
+            <label>User Name</label>
+        </div>
+        <div class="inforUser">
+            <div class="fn input-box">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                <input type="text">
+                <label>First Name</label>
+            </div>
+            <div class="ln input-box">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                <input type="text">
+                <label>Last Name</label>
+            </div>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+            <input type="text">
+            <label>Phone Number</label>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+            <input type="password">
+            <label>Password</label>
+        </div>
+        <button class="btn btn-success" type="submit">Register</button>
+        <div class="login-register">
+            <p>
+                Already have an account<a class="login-link" asp-page="Login">
+                    Login
+                </a>
+            </p>
+        </div>
+    </form>
+</div>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>

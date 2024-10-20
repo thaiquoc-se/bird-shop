@@ -1,0 +1,90 @@
+﻿@page
+@model BirdFarmShop.Pages.Admin.UserManagement.ShowUserListModel
+
+@{
+    ViewData["Title"] = "ShowUserList";
+}
+
+<h1>ShowUserList</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TblUser[0].UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblUser[0].Pass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblUser[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblUser[0].Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblUser[0].UserAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblUser[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblUser[0].UserStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblUser[0].District)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblUser[0].Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblUser[0].Ward)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TblUser) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.District.DistrictId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.RoleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ward.WardId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,85 @@
+﻿@page
+@model BirdFarmShop.Pages.Test.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TblUser</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TblUser.UserId" />
+            <div class="form-group">
+                <label asp-for="TblUser.RoleId" class="control-label"></label>
+                <select asp-for="TblUser.RoleId" class="form-control" asp-items="ViewBag.RoleId"></select>
+                <span asp-validation-for="TblUser.RoleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.WardId" class="control-label"></label>
+                <select asp-for="TblUser.WardId" class="form-control" asp-items="ViewBag.WardId"></select>
+                <span asp-validation-for="TblUser.WardId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.DistrictId" class="control-label"></label>
+                <select asp-for="TblUser.DistrictId" class="form-control" asp-items="ViewBag.DistrictId"></select>
+                <span asp-validation-for="TblUser.DistrictId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.image" class="control-label"></label>
+                <input asp-for="TblUser.image" class="form-control" />
+                <span asp-validation-for="TblUser.image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.UserName" class="control-label"></label>
+                <input asp-for="TblUser.UserName" class="form-control" />
+                <span asp-validation-for="TblUser.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.Pass" class="control-label"></label>
+                <input asp-for="TblUser.Pass" class="form-control" />
+                <span asp-validation-for="TblUser.Pass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.FullName" class="control-label"></label>
+                <input asp-for="TblUser.FullName" class="form-control" />
+                <span asp-validation-for="TblUser.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.Phone" class="control-label"></label>
+                <input asp-for="TblUser.Phone" class="form-control" />
+                <span asp-validation-for="TblUser.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.UserAddress" class="control-label"></label>
+                <input asp-for="TblUser.UserAddress" class="form-control" />
+                <span asp-validation-for="TblUser.UserAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.Email" class="control-label"></label>
+                <input asp-for="TblUser.Email" class="form-control" />
+                <span asp-validation-for="TblUser.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.UserStatus" class="control-label"></label>
+                <input asp-for="TblUser.UserStatus" class="form-control" />
+                <span asp-validation-for="TblUser.UserStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
