@@ -1,0 +1,60 @@
+﻿@page
+@model BirdFarmShop.Pages.Admin.BirdChildrenMagement.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Tblchildrenbird</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Tblchildrenbird.ChildrenBirdId" />
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.BirdId" class="control-label"></label>
+                <select asp-for="Tblchildrenbird.BirdId" class="form-control" asp-items="ViewBag.BirdId"></select>
+                <span asp-validation-for="Tblchildrenbird.BirdId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.ChildrenBirdName" class="control-label"></label>
+                <input asp-for="Tblchildrenbird.ChildrenBirdName" class="form-control" />
+                <span asp-validation-for="Tblchildrenbird.ChildrenBirdName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.ChildrenBirdOfType" class="control-label"></label>
+                <input asp-for="Tblchildrenbird.ChildrenBirdOfType" class="form-control" />
+                <span asp-validation-for="Tblchildrenbird.ChildrenBirdOfType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.Price" class="control-label"></label>
+                <input asp-for="Tblchildrenbird.Price" class="form-control" />
+                <span asp-validation-for="Tblchildrenbird.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.StatusChildrenBird" class="control-label"></label>
+                <input asp-for="Tblchildrenbird.StatusChildrenBird" class="form-control" />
+                <span asp-validation-for="Tblchildrenbird.StatusChildrenBird" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.Image" class="control-label"></label>
+                <input asp-for="Tblchildrenbird.Image" class="form-control" />
+                <span asp-validation-for="Tblchildrenbird.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,117 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+.wrapper {
+    max-width: 1920px;
+    margin: 0px auto;
+    width: 100%;
+    height: 100vh;
+    padding: 0 20px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    display: flex;
+    position: absolute;
+    backdrop-filter: blur(50px);
+    box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+body {
+    min-height: 80vh;
+    background-color: rgb(25 123 255 / 7%);
+}
+
+section {
+    width: 100%;
+    height: cover;
+}
+
+    section .profile {
+        align-items: center;
+        transform: translate(1.6%, 25%);
+        width: 95%;
+        height: cover;
+        box-shadow: 0 1px 20px 0 rgba(21, 27, 30, 0.8);
+        border-radius: 10px;
+    }
+
+.profile .profile__right {
+    /* width: 100%; */
+    padding: 40px 40px;
+}
+
+    .profile .profile__right h3 {
+        font-size: 25px;
+        color: #120bd6;
+        margin-bottom: 15px;
+        text-align: center;
+        font-weight: 600;
+    }
+/* update */
+.profile__right .info_data {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+    .profile__right .info_data .info_data-left {
+        margin-right: 20px;
+        width: 100%;
+    }
+
+    .profile__right .info_data .info_data-right {
+        margin-right: 20px;
+        width: 100%;
+    }
+
+.profile .profile__right .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+    .profile .profile__right .info h5 {
+        margin-right: 40px;
+        width: 100%;
+    }
+
+    .profile .profile__right .info input {
+        width: 100%;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        transition: all 0.4s ease;
+        transform: translateX(-50%);
+    }
+
+    .profile .profile__right .info select {
+        width: 100%;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        transition: all 0.4s ease;
+        transform: translateX(-50%);
+        margin-bottom: 18px;
+    }
+
+.button {
+    text-align: center;
+    margin-top: 14px;
+
+}
+.back {
+    position: relative;
+    top: 41px;
+    left: 43rem;
+    width: 99.46px;
+}

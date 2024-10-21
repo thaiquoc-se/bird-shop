@@ -19,40 +19,40 @@ namespace BirdFarmShop.Pages.Test
         }
 
         [BindProperty]
-      public TblUser TblUser { get; set; } = default!;
+      public TblOrderDetail TblOrderDetail { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.TblUsers == null)
+            if (id == null || _context.TblOrderDetails == null)
             {
                 return NotFound();
             }
 
-            var tbluser = await _context.TblUsers.FirstOrDefaultAsync(m => m.UserId == id);
+            var tblorderdetail = await _context.TblOrderDetails.FirstOrDefaultAsync(m => m.OrderId == id);
 
-            if (tbluser == null)
+            if (tblorderdetail == null)
             {
                 return NotFound();
             }
             else 
             {
-                TblUser = tbluser;
+                TblOrderDetail = tblorderdetail;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.TblUsers == null)
+            if (id == null || _context.TblOrderDetails == null)
             {
                 return NotFound();
             }
-            var tbluser = await _context.TblUsers.FindAsync(id);
+            var tblorderdetail = await _context.TblOrderDetails.FindAsync(id);
 
-            if (tbluser != null)
+            if (tblorderdetail != null)
             {
-                TblUser = tbluser;
-                _context.TblUsers.Remove(TblUser);
+                TblOrderDetail = tblorderdetail;
+                _context.TblOrderDetails.Remove(TblOrderDetail);
                 await _context.SaveChangesAsync();
             }
 

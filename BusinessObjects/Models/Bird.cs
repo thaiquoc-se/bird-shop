@@ -17,9 +17,14 @@ namespace BusinessObjects.Models
         public int UserId { get; set; }
         public int? Estimation { get; set; }
         public string? Gender { get; set; }
-        public string? WeightofBirds { get; set; }
+        public double WeightofBirds { get; set; }
         public string? BirdDescription { get; set; }
         public bool? BirdStatus { get; set; }
+        public decimal? Price { get; set; }
+        public int? Quantity { get; set; }
+        public string? Image { get; set; }
+        public int? FatherId { get; set; }
+        public int? MotherId { get; set; }
 
         public virtual TblUser User { get; set; } = null!;
         public virtual ICollection<TblComment> TblComments { get; set; }

@@ -1,0 +1,136 @@
+﻿@page
+@model BirdFarmShop.Pages.Manager.WorkManagement.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+@*<div>
+    <h4>TblStaff</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblStaff.WorkDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblStaff.WorkDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblStaff.WorkName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblStaff.WorkName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblStaff.Shift)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblStaff.Shift)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblStaff.WorkStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblStaff.WorkStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblStaff.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblStaff.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblStaff.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblStaff.EndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblStaff.User)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblStaff.User.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TblStaff?.StaffId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+*@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- GG Font -->
+    <link as="font"
+          crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoATitleCond-Regular-Web.woff2"
+          rel="preload"
+          type="font/woff2" />
+    <link as="font"
+          crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoSText-Regular-Web.woff2"
+          rel="preload"
+          type="font/woff2" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+    <!-- Animation css -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./lib/WOW-master/css/libs/animate.css" />
+    <link rel="stylesheet" href="~/css/detail.css" />
+    <title>Detail</title>
+</head>
+<body>
+    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+        <div class="card p-4">
+            <div class="image d-flex flex-column justify-content-center align-items-center">
+                <span class="name mt-2">  Work Name: @Html.DisplayFor(model => model.TblStaff.WorkName)</span>
+
+
+                <div class="text mt-3">
+                    <span>
+                        Shift: @Html.DisplayFor(model => model.TblStaff.Shift)
+                    </span>
+                </div>
+                <div class="text mt-3">
+                    <span>
+                        Work Status: @Html.DisplayFor(model => model.TblStaff.WorkStatus)
+                    </span>
+                </div>
+
+                <div class="text mt-3 text-center">
+                    <span>
+                       Start Date: @Html.DisplayFor(model => model.TblStaff.StartDate)
+                    </span>
+                </div>
+                <div class="text mt-3">
+                    <span>
+                       End Date: @Html.DisplayFor(model => model.TblStaff.EndDate)
+                    </span>
+                </div>
+                <div class="text mt-3">
+                    <span>
+                       User Email: @Html.DisplayFor(model => model.TblStaff.User.Email)
+                    </span>
+                </div>
+
+                <div class="text mt-3">
+                    <span>
+                        Work Description: @Html.DisplayFor(model => model.TblStaff.WorkDescription)
+                    </span>
+                </div>
+                <div class="d-flex mt-3">
+                    <a asp-page="./Edit" asp-route-id="@Model.TblStaff?.StaffId"><button class="btn1 btn-success mr-2">Edit</button></a>
+                    <a asp-page="./Index"><button class="btn1 btn-primary">Back to list</button></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>

@@ -11,6 +11,7 @@ namespace BusinessObjects.Models
         public string? ChildrenBirdOfType { get; set; }
         public decimal Price { get; set; }
         public bool? StatusChildrenBird { get; set; }
+        public string? Image { get; set; }
 
         public virtual Bird? Bird { get; set; }
     }

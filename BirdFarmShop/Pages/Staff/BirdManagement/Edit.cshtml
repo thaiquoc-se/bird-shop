@@ -1,0 +1,142 @@
+﻿@page
+@model BirdFarmShop.Pages.Staff.BirdManagement.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<head>
+    <title>edit user</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- GG Font -->
+    <link as="font" crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoATitleCond-Regular-Web.woff2"
+          rel="preload" type="font/woff2" />
+    <link as="font" crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoSText-Regular-Web.woff2"
+          rel="preload" type="font/woff2" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Animation css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./lib/WOW-master/css/libs/animate.css" />
+
+    <link rel="stylesheet" href="~/css/edit.css">
+</head>
+<body>
+    <div class="wrapper">
+
+        <section class="box">
+            <div class="container">
+                <form method="post">
+                    <div class="profile">
+                        <div class="profile__left">
+                            <img src="@Html.DisplayFor(model => model.Bird.Image)" width="150" alt="...">
+                            <div class="upload">
+                                <button class="btn btn-Warning" type="button" name="button">
+                                    <i class="fa fa-upload"></i> Upload avatar
+                                    <input asp-for="Bird.Image">
+                                </button>
+                            </div>
+                        </div>
+                        <input type="hidden" asp-for="Bird.BirdId" />
+                        <div class="profile__right">
+                            <h3>Edit</h3>
+                            <div class="info_data">
+                                <div class="info_data-left">
+
+                                    <div class="info">
+                                        <h5>BirdName:</h5>
+
+                                        <input asp-for="Bird.BirdName" class="form-control w-60 mb-3" />
+                                        <span asp-validation-for="Bird.BirdName" class="text-danger"></span>
+                                        @* <span class="text-danger">@Model.ErrorMessage</span> *@
+                                    </div>
+                                    <div class="info">
+                                        <h5>Estimation:</h5>
+                                        <input asp-for="Bird.Estimation" class="form-control w-60 mb-3" />
+                                        <span asp-validation-for="Bird.Estimation" class="text-danger"></span>
+                                    </div>
+                                    <div class="info">
+                                        <h5>Gender:</h5>
+
+                                        <input asp-for="Bird.Gender" class="form-control w-60 mb-3" />
+                                        <span asp-validation-for="Bird.Gender" class="text-danger"></span>
+                                    </div>
+                                    <div class="info">
+                                        <h5>WeightofBirds:</h5>
+
+                                        <input asp-for="Bird.WeightofBirds" class="form-control w-60 mb-3" type="number" min="0" max="1000" />
+                                        <span asp-validation-for="Bird.WeightofBirds" class="text-danger"></span>
+                                    </div>
+                                    <div class="info">
+                                        <h5>BirdDescription:</h5>
+
+                                        <input asp-for="Bird.BirdDescription" class="form-control w-60 mb-3" />
+                                        <span asp-validation-for="Bird.BirdDescription" class="text-danger"></span>
+                                    </div>
+                                    <div class="info">
+                                        <h5>Price:</h5>
+
+                                        <input asp-for="Bird.Price" class="form-control w-60 mb-3" />
+                                        <span asp-validation-for="Bird.Price" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="info_data-right">
+                                    <div class="info">
+                                        <h5>UserId:</h5>
+
+                                        <input asp-for="Bird.UserId" class="form-control" />
+                                        <span asp-validation-for="Bird.UserId" class="text-danger"></span>
+                                    </div>
+                                    <div class="info">
+                                        <h5>Quantity:</h5>
+
+                                        <input asp-for="Bird.Quantity" class="form-control" />
+                                        <span asp-validation-for="Bird.UserId" class="text-danger"></span>
+                                    </div>
+                                    <div class="info">
+                                        <h5>Status:</h5>
+
+                                        <input asp-for="Bird.BirdStatus" class="form-control" />
+                                        <span asp-validation-for="Bird.BirdStatus" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="bu  tton">
+                                <button type="submit" value="Save" class="btn btn-success"><i class="fa-regular fa-pen-to-square"></i>Chỉnh sửa</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </form>
+                <a asp-page="./Index"><button class="btn btn-primary back"><i class="fa-solid fa-backward"></i>Quay về</button></a>
+
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/6bf3556146.js" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

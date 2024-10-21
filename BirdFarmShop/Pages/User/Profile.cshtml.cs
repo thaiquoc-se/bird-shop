@@ -8,16 +8,16 @@ using Microsoft.EntityFrameworkCore;
 using BusinessObjects.Models;
 using Repositories.IRepository;
 using BusinessObjects.DTOs;
+using Services.IServices;
 
 namespace BirdFarmShop.Pages.User
 {
     public class ProfileModel : PageModel
     {
-        private readonly IUserRepository _userRepository;
-
-        public ProfileModel(IUserRepository userRepository)
+        private readonly IUserService _userService;
+        public ProfileModel(IUserService userService)
         {
-            _userRepository = userRepository;
+            _userService = userService;
         }
 
       public UserDTO TblUser { get; set; } = default!;
@@ -25,11 +25,18 @@ namespace BirdFarmShop.Pages.User
 
         public IActionResult OnGet()
         {
-            UserID =(int)HttpContext.Session.GetInt32("UserID")!;
-            var tbluser = _userRepository.GetUserDTOById(UserID);
+            try
+            {
+                UserID = (int)HttpContext.Session.GetInt32("UserID")!;
+            }
+            catch
+            {
+                return RedirectToPage("/Login");
+            }
+            var tbluser = _userService.GetUserDTOById(UserID);
             if (tbluser == null)
             {
-                return NotFound();
+                return RedirectToPage("Login");
             }
             else 
             {

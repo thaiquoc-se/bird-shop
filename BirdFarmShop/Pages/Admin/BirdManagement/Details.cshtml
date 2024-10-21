@@ -1,0 +1,150 @@
+﻿@page
+@model BirdFarmShop.Pages.Admin.BirdManagement.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@*<h1>Details</h1>
+
+<div>
+    <h4>Bird</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bird.BirdName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bird.BirdName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bird.Estimation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bird.Estimation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bird.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bird.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bird.WeightofBirds)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bird.WeightofBirds)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bird.BirdDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bird.BirdDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bird.BirdStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bird.BirdStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bird.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bird.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bird.Quantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bird.Quantity)
+        </dd>
+        <dt class="col-sm-2">
+            Owner
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bird.User.FullName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Bird?.BirdId">Edit</a> |
+    <a asp-page="./ShowListBird">Back to List</a>
+</div>
+*@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- GG Font -->
+    <link as="font"
+          crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoATitleCond-Regular-Web.woff2"
+          rel="preload"
+          type="font/woff2" />
+    <link as="font"
+          crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoSText-Regular-Web.woff2"
+          rel="preload"
+          type="font/woff2" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+    <!-- Animation css -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./lib/WOW-master/css/libs/animate.css" />
+    <link rel="stylesheet" href="~/css/detail.css" />
+    <title>Detail</title>
+</head>
+<body>
+    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+        <div class="card p-4">
+            <div class="image d-flex flex-column justify-content-center align-items-center">
+                <button class="btn">
+                    <img src="@Html.DisplayFor(model => model.Bird.Image)"
+                         height="100"
+                         width="100" />
+                </button>
+                <span class="name mt-2">@Html.DisplayFor(model => model.Bird.BirdName)</span>
+                <span class="idd">@Html.DisplayFor(model => model.Bird.BirdId)</span>
+                <div class="info">
+                    <h5>Estimation: @Html.DisplayFor(model => model.Bird.Estimation)</h5>
+                </div>
+
+                <div class="text mt-3 text-center">
+                    <span>
+                        <h5>Gender:  @Html.DisplayFor(model => model.Bird.Gender)</h5>
+                    </span>
+                </div>
+                <div class="text mt-3">
+                    <span>
+                        <h5>WeightofBirds: @Html.DisplayFor(model => model.Bird.WeightofBirds)</h5>
+                    </span>
+                </div>
+                <div class="text mt-3">
+                    <h5>BirdDescription:</h5>
+                    <span>
+                        @Html.DisplayFor(model => model.Bird.BirdDescription)
+                    </span>
+                </div>
+                <div class="text mt-3">
+                    <span>
+                        <h5>Price: @Html.DisplayFor(model => model.Bird.Price)</h5>
+                    </span>
+                </div>
+                <div class="text mt-3">
+                   
+                    <span>
+                        <h5>Quantity:  @Html.DisplayFor(model => model.Bird.Quantity)</h5>
+                    </span>
+                </div>
+                <div class="d-flex mt-3">
+                    <a asp-page="./Edit" asp-route-id="@Model.Bird?.BirdId"><button class="btn1 btn-success mr-2">Edit</button></a>
+                    <a asp-page="./ShowListBird"><button class="btn1 btn-primary">Back to list</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

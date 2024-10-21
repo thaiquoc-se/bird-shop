@@ -9,79 +9,44 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>TblUser</h4>
+    <h4>TblOrderDetail</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.image)
+            @Html.DisplayNameFor(model => model.TblOrderDetail.TotalPrice)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.image)
+            @Html.DisplayFor(model => model.TblOrderDetail.TotalPrice)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.UserName)
+            @Html.DisplayNameFor(model => model.TblOrderDetail.Quantity)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.UserName)
+            @Html.DisplayFor(model => model.TblOrderDetail.Quantity)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.Pass)
+            @Html.DisplayNameFor(model => model.TblOrderDetail.CostsIncurred)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.Pass)
+            @Html.DisplayFor(model => model.TblOrderDetail.CostsIncurred)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.FullName)
+            @Html.DisplayNameFor(model => model.TblOrderDetail.Bird)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.FullName)
+            @Html.DisplayFor(model => model.TblOrderDetail.Bird.BirdName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.Phone)
+            @Html.DisplayNameFor(model => model.TblOrderDetail.Order)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.Phone)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.UserAddress)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.UserAddress)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.UserStatus)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.UserStatus)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.District)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.District.DistrictId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.Role)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.Role.RoleId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TblUser.Ward)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TblUser.Ward.WardId)
+            @Html.DisplayFor(model => model.TblOrderDetail.Order.ShipAddress)
         </dd>
     </dl>
     
     <form method="post">
-        <input type="hidden" asp-for="TblUser.UserId" />
+        <input type="hidden" asp-for="TblOrderDetail.OrderId" />
+        <input type="hidden" asp-for="TblOrderDetail.BirdId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>
     </form>

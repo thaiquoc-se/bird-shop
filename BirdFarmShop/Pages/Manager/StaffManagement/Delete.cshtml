@@ -1,0 +1,164 @@
+﻿@page
+@model BirdFarmShop.Pages.Manager.StaffManagement.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+@* <div>
+    <h4>TblUser</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.Image)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.Image)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.Pass)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.Pass)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.FullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.Phone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.Phone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.UserAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.UserAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.UserStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.UserStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.District)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.District.DistrictId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.Role)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.Role.RoleId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblUser.Ward)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblUser.Ward.WardId)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="TblUser.UserId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div> *@
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- GG Font -->
+    <link as="font"
+          crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoATitleCond-Regular-Web.woff2"
+          rel="preload"
+          type="font/woff2" />
+    <link as="font"
+          crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoSText-Regular-Web.woff2"
+          rel="preload"
+          type="font/woff2" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+    <!-- Animation css -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./lib/WOW-master/css/libs/animate.css" />
+    <link rel="stylesheet" href="~/css/detail.css" />
+    <title>Detail</title>
+</head>
+<body>
+    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+        <div class="card p-4">
+            <div class="image d-flex flex-column justify-content-center align-items-center">
+                <button class="btn">
+                    <img src="@Html.DisplayFor(model => model.TblUser.Image)"
+                         height="100"
+                         width="100" />
+                </button>
+                <span class="name mt-2">@Html.DisplayFor(model => model.TblUser.UserName)</span>
+                <span class="idd">@Html.DisplayFor(model => model.TblUser.FullName)</span>
+                <div class="text mt-3">
+                    <span>
+                        @Html.DisplayFor(model => model.TblUser.Pass)
+                    </span>
+                </div>
+                <div class="text mt-3">
+                    <span>
+                        @Html.DisplayFor(model => model.TblUser.Phone)
+                    </span>
+                </div>
+
+                <div class="text mt-3 text-center">
+                    <span>
+                        @Html.DisplayFor(model => model.TblUser.UserAddress)
+                    </span>
+                </div>
+                <div class="text mt-3">
+                    <span>
+                        @Html.DisplayFor(model => model.TblUser.Email)
+                    </span>
+                </div>
+                <div class="text mt-3">
+                    <span>
+                        @Html.DisplayFor(model => model.TblUser.UserStatus)
+                    </span>
+                </div>
+                <div class="text mt-3">
+                    <span>
+                        @Html.DisplayFor(model => model.TblUser.RoleId)
+                    </span>
+                </div>
+                <form method="post" class="d-flex mt-3">
+                    <input type="hidden" asp-for="TblUser.UserId" />
+                    <button type="submit" value="Delete" class="btn1 btn-danger mr-2">Delete</button></>
+                    
+                </form>
+                <a class="back" asp-page="./Index"><button class="btn1 btn-primary">Back to list</button></a>
+            </div>
+        </div>
+    </div>
+</body>

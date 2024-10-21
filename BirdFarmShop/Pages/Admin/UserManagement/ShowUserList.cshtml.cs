@@ -6,29 +6,49 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BusinessObjects.Models;
+using Microsoft.AspNetCore.Authorization;
+using BusinessObjects.DTOs;
+using Repositories.IRepository;
+using Services.IServices;
 
 namespace BirdFarmShop.Pages.Admin.UserManagement
 {
     public class ShowUserListModel : PageModel
     {
-        private readonly BusinessObjects.Models.BirdFarmShopContext _context;
+        private readonly IUserService _userService;
 
-        public ShowUserListModel(BusinessObjects.Models.BirdFarmShopContext context)
+        public ShowUserListModel(IUserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
-        public IList<TblUser> TblUser { get;set; } = default!;
+        public IList<UserDTO> TblUser { get;set; } = default!;
+        public UserDTO TblUserDTO { get; set; }
+        public int UserId;
+        public string isAdmin = null!;
 
-        public async Task OnGetAsync()
+        public IActionResult OnGet()
         {
-            if (_context.TblUsers != null)
+            try
             {
-                TblUser = await _context.TblUsers
-                .Include(t => t.District)
-                .Include(t => t.Role)
-                .Include(t => t.Ward).ToListAsync();
+                isAdmin = HttpContext.Session.GetString("isAdmin")!;
+                if (isAdmin != "AD")
+                {
+                   return NotFound();
+                }
+                if(isAdmin == null)
+                {
+                  return  NotFound();
+                }
             }
+            catch
+            {
+                NotFound();
+            }
+            TblUser = _userService.GetAllUsers().Where(u => !u.RoleId.Equals("AD")).ToList();
+            UserId = (int)HttpContext.Session.GetInt32("UserID")!;
+            TblUserDTO = _userService.GetUserDTOById(UserId);
+            return Page();
         }
     }
 }

@@ -20,24 +20,23 @@ namespace BirdFarmShop.Pages.Test
         }
 
         [BindProperty]
-        public TblUser TblUser { get; set; } = default!;
+        public TblOrderDetail TblOrderDetail { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.TblUsers == null)
+            if (id == null || _context.TblOrderDetails == null)
             {
                 return NotFound();
             }
 
-            var tbluser =  await _context.TblUsers.FirstOrDefaultAsync(m => m.UserId == id);
-            if (tbluser == null)
+            var tblorderdetail =  await _context.TblOrderDetails.FirstOrDefaultAsync(m => m.OrderId == id);
+            if (tblorderdetail == null)
             {
                 return NotFound();
             }
-            TblUser = tbluser;
-           ViewData["DistrictId"] = new SelectList(_context.TblDistricts, "DistrictId", "DistrictId");
-           ViewData["RoleId"] = new SelectList(_context.TblRoles, "RoleId", "RoleId");
-           ViewData["WardId"] = new SelectList(_context.TblWards, "WardId", "WardId");
+            TblOrderDetail = tblorderdetail;
+           ViewData["BirdId"] = new SelectList(_context.Birds, "BirdId", "BirdName");
+           ViewData["OrderId"] = new SelectList(_context.TblOrders, "OrderId", "ShipAddress");
             return Page();
         }
 
@@ -50,7 +49,7 @@ namespace BirdFarmShop.Pages.Test
                 return Page();
             }
 
-            _context.Attach(TblUser).State = EntityState.Modified;
+            _context.Attach(TblOrderDetail).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +57,7 @@ namespace BirdFarmShop.Pages.Test
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TblUserExists(TblUser.UserId))
+                if (!TblOrderDetailExists(TblOrderDetail.OrderId))
                 {
                     return NotFound();
                 }
@@ -71,9 +70,9 @@ namespace BirdFarmShop.Pages.Test
             return RedirectToPage("./Index");
         }
 
-        private bool TblUserExists(int id)
+        private bool TblOrderDetailExists(int id)
         {
-          return (_context.TblUsers?.Any(e => e.UserId == id)).GetValueOrDefault();
+          return (_context.TblOrderDetails?.Any(e => e.OrderId == id)).GetValueOrDefault();
         }
     }
 }

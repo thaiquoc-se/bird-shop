@@ -14,81 +14,45 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].image)
+                @Html.DisplayNameFor(model => model.TblOrderDetail[0].TotalPrice)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].UserName)
+                @Html.DisplayNameFor(model => model.TblOrderDetail[0].Quantity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].Pass)
+                @Html.DisplayNameFor(model => model.TblOrderDetail[0].CostsIncurred)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].FullName)
+                @Html.DisplayNameFor(model => model.TblOrderDetail[0].Bird)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].UserAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].UserStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].District)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].Role)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TblUser[0].Ward)
+                @Html.DisplayNameFor(model => model.TblOrderDetail[0].Order)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.TblUser) {
+@foreach (var item in Model.TblOrderDetail) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.image)
+                @Html.DisplayFor(modelItem => item.TotalPrice)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserName)
+                @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Pass)
+                @Html.DisplayFor(modelItem => item.CostsIncurred)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FullName)
+                @Html.DisplayFor(modelItem => item.Bird.BirdName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Phone)
+                @Html.DisplayFor(modelItem => item.Order.ShipAddress)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.District.DistrictId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Role.RoleId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ward.WardId)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

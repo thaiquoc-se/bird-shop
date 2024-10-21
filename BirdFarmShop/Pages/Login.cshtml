@@ -24,15 +24,16 @@
             <h2>Login</h2>
             <form method="post">
                 <div class="input-box">
-                    <input asp-for="user.UserName" class="form-control" />
+                    <input asp-for="user.UserName" type="text" />
                     <span asp-validation-for="user.UserName" class="text-danger"></span>
                     <label>User Name</label>
                 </div>
                 <div class="input-box">
-                    <input asp-for="user.Pass" class="form-control" />
+                    <input asp-for="user.Pass" type="password"/>
                     <span asp-validation-for="user.Pass" class="text-danger"></span>
                     <label>Password</label>
                 </div>
+                <h6 class="text-danger" style="color:red">@Model.ErrorMessage</h6>
                 <div class="remeber-forgot">
                     <label>
                         <input type="checkbox">Remember me
@@ -49,22 +50,22 @@
                     </p>
                 </div>
                 <hr>
-                <span class="or">Or</span>
-            <form method="p" action="/LoginGoogle">
+            <!--<span class="or">Or</span>-->
+            <!--form method="get" action="/LoginGoogle">
                 <button class="signup-social" type="submit">
                     <img src="./img/7123025_logo_google_g_icon.png" alt="">
                     <span class="signup-text">Login With Google</span>
                 </button>
-            </form>
-
-
+            </form>-->
+            
+             
             
         </div>
 
         
     </div>
     <!-- Optional JavaScript -->
-    <script src="~/js/login.js"></script>
+    
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

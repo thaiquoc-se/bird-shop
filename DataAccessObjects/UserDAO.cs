@@ -71,7 +71,7 @@ namespace DataAccessObjects
                     FullName = user.FullName,
                     UserStatus = user.UserStatus,
                     RoleId = user.RoleId,
-                    image = user.image,
+                    image = user.Image,
                     RoleName = user.Role.RoleName!,
                     Pass = user.Pass,
                     Email = user.Email,
@@ -114,7 +114,7 @@ namespace DataAccessObjects
                 return _context.TblUsers
                 .Include(t => t.District)
                 .Include(t => t.Role)
-                .Include(t => t.Ward).FirstOrDefault()!;
+                .Include(t => t.Ward).Where(t => t.UserId == id).FirstOrDefault()!;
             }
             catch (Exception ex)
             {
@@ -136,18 +136,30 @@ namespace DataAccessObjects
 
         public void Update(TblUser user)
         {
-            _context.Attach(user).State = EntityState.Modified;
             try
             {
-                _context.SaveChanges();
+                    var _user = _context.TblUsers.Where(u => u.UserId == user.UserId).FirstOrDefault();
+                    if (_user != null)
+                    {
+                        _user.UserId = user.UserId;
+                        _user.UserName = user.UserName;
+                        _user.Email = user.Email;
+                        _user.UserAddress = user.UserAddress;
+                        _user.FullName = user.FullName;
+                        _user.DistrictId = user.DistrictId;
+                        _user.WardId = user.WardId;
+                        _user.Pass = user.Pass;
+                        _user.UserStatus = user.UserStatus;
+                        _user.Image = user.Image;
+                        _user.Phone = user.Phone;
+                        _user.Image = user.Image;
+                        _context.Update(_user);
+                        _context.SaveChanges();
+                    }                  
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception ex)
             {
-                if (!TblUserExists(user.UserId))
-                {
-                    throw new Exception("User not exist");
-                }
-                throw;
+                throw new Exception(ex.Message);
             }
         }
         public void Delete(int id)

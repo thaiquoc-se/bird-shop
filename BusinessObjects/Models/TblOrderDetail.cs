@@ -7,8 +7,7 @@ namespace BusinessObjects.Models
     {
         public int OrderId { get; set; }
         public int BirdId { get; set; }
-        public int? TimeId { get; set; }
-        public decimal TotalPrice { get; set; }
+        public decimal? TotalPrice { get; set; }
         public int? Quantity { get; set; }
         public string? CostsIncurred { get; set; }
 

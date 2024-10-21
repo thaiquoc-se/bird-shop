@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace BusinessObjects.DTOs
         public string? Pass { get; set; }
         public string? FullName { get; set; }
         public string? Phone { get; set; }
+        [Required(ErrorMessage ="Please Input Your Address")]
+        [Display(Name ="Address")]
         public string? UserAddress { get; set; }
         public string Email { get; set; } = null!;
         public bool? UserStatus { get; set; }

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositorie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirdFarmShop", "BirdFarmShop\BirdFarmShop.csproj", "{F067399F-5BC2-4D1E-9933-AF28069F8D04}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{8AF09CA0-B7B9-444E-ADD8-A9B6816D036B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F067399F-5BC2-4D1E-9933-AF28069F8D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F067399F-5BC2-4D1E-9933-AF28069F8D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F067399F-5BC2-4D1E-9933-AF28069F8D04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AF09CA0-B7B9-444E-ADD8-A9B6816D036B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF09CA0-B7B9-444E-ADD8-A9B6816D036B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF09CA0-B7B9-444E-ADD8-A9B6816D036B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF09CA0-B7B9-444E-ADD8-A9B6816D036B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

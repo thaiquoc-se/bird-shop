@@ -1,0 +1,188 @@
+﻿@page
+@model BirdFarmShop.Pages.Manager.StaffManagement.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@* <h1>Create</h1>
+
+<h4>TblUser</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TblUser.RoleId" class="control-label"></label>
+                <select asp-for="TblUser.RoleId" class ="form-control" asp-items="ViewBag.RoleName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.WardId" class="control-label"></label>
+                <select asp-for="TblUser.WardId" class ="form-control" asp-items="ViewBag.WardName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.DistrictId" class="control-label"></label>
+                <select asp-for="TblUser.DistrictId" class ="form-control" asp-items="ViewBag.DistrictName"></select>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="TblUser.UserName" class="control-label"></label>
+                <input asp-for="TblUser.UserName" class="form-control" />
+                <span asp-validation-for="TblUser.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.Pass" class="control-label"></label>
+                <input asp-for="TblUser.Pass" class="form-control" />
+                <span asp-validation-for="TblUser.Pass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.FullName" class="control-label"></label>
+                <input asp-for="TblUser.FullName" class="form-control" />
+                <span asp-validation-for="TblUser.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.Phone" class="control-label"></label>
+                <input asp-for="TblUser.Phone" class="form-control" />
+                <span asp-validation-for="TblUser.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.UserAddress" class="control-label"></label>
+                <input asp-for="TblUser.UserAddress" class="form-control" />
+                <span asp-validation-for="TblUser.UserAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.Email" class="control-label"></label>
+                <input asp-for="TblUser.Email" class="form-control" />
+                <span asp-validation-for="TblUser.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblUser.UserStatus" class="control-label"></label>
+                <input asp-for="TblUser.UserStatus" class="form-control" />
+                <span asp-validation-for="TblUser.UserStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+ *@
+
+
+
+
+<head>
+    <title>edit user</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- GG Font -->
+    <link as="font" crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoATitleCond-Regular-Web.woff2"
+          rel="preload" type="font/woff2" />
+    <link as="font" crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoSText-Regular-Web.woff2"
+          rel="preload" type="font/woff2" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Animation css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./lib/WOW-master/css/libs/animate.css" />
+
+    <link rel="stylesheet" href="~/css/create.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <section class="box">
+            <div class="container">
+                <form method="post" class="profile">
+                    <div class="profile__right">
+                        <h3>Create</h3>
+                        <div class="info_data">
+                            <div class="info_data-left">
+
+                                <div class="info">
+                                    <h5>UserName:</h5>
+                                    <input asp-for="TblUser.UserName" type="text" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="TblUser.UserName" class="text-danger"></span>
+                                </div>
+                                <div class="info">
+                                    <h5>password:</h5>
+                                    <input asp-for="TblUser.Pass" type="password" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="TblUser.UserName" class="text-danger"></span>
+                                </div>
+                                <div class="info">
+                                    <h5>Email:</h5>
+                                    <input asp-for="TblUser.Email" type="text" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="TblUser.Email" class="text-danger"></span>
+                                </div>
+                                <div class="info">
+                                    <h5>Họ và tên:</h5>
+                                    <input asp-for="TblUser.FullName" type="text" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="TblUser.FullName" class="text-danger"></span>
+                                </div>
+                                <div class="info">
+                                    <h5>số điện thoại:</h5>
+                                    <input asp-for="TblUser.Phone" type="text" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="TblUser.Phone" class="text-danger"></span>
+                                </div>
+                                <div class="info">
+                                    <h5>địa chỉ:</h5>
+                                    <input asp-for="TblUser.UserAddress" type="text" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="TblUser.UserAddress" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="info_data-right">
+
+
+                                <div class="info">
+                                    <h5>Ward Name:</h5>
+                                    <select asp-for="TblUser.WardId" class="form-control" asp-items="ViewBag.WardName"></select>
+                                </div>
+                                <div class="info">
+                                    <h5>District Name:</h5>
+                                    <select asp-for="TblUser.DistrictId" class="form-control" asp-items="ViewBag.DistrictName"></select>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="button">
+                            <button type="submit" value="Save" class="btn btn-success"><i class="fa-regular fa-pen-to-square"></i>Create</button>
+                        </div>
+
+                    </div>
+
+                </form>
+
+
+                <a class="back" asp-page="./Index"><button class="btn btn-primary"><i class="fa-solid fa-backward"></i>Back to list</button></a>
+                
+                    
+            </div>
+        </section>
+
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

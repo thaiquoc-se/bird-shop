@@ -1,7 +1,10 @@
 ﻿@page
 @model BirdFarmShop.Pages.HomePageModel
+@using Microsoft.AspNetCore.Http
 @{
+    var userId = HttpContext.Session.GetString("UserID");
 }
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,7 +40,7 @@
         <div class="container">
 
             <h1>
-                <a href="#" class="logo">Bird Store</a>
+                <a asp-page="HomePage" class="logo">Bird Store</a>
             </h1>
 
             <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
@@ -55,7 +58,7 @@
                 <ul class="navbar-list">
 
                     <li>
-                        <a href="#home" class="navbar-link" data-nav-link>
+                        <a asp-page="HomePage" class="navbar-link" data-nav-link>
                             <span>Trang chủ</span>
 
                             <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
@@ -63,7 +66,7 @@
                     </li>
 
                     <li>
-                        <a href="#about" class="navbar-link" data-nav-link>
+                        <a asp-page="User/Profile" class="navbar-link" data-nav-link>
                             <span>Thông tin</span>
 
                             <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
@@ -71,18 +74,23 @@
                     </li>
 
                     <li>
-                        <a href="#service" class="navbar-link" data-nav-link>
-                            <span>Dịch vụ</span>
+                        <a asp-page="ShowAllBirdChildren" class="navbar-link" data-nav-link>
+                            <span>Chim con</span>
 
                             <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
                         </a>
                     </li>
 
+                    <li>
+                        <a asp-page="ShowAllBirds" class="navbar-link" data-nav-link>
+                            <span>Chim</span>
+                            <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                        </a>
+                    </li>
 
                     <li>
-                        <a href="#" class="navbar-link" data-nav-link>
-                            <span>Liên hệ</span>
-
+                        <a asp-page="Cart" class="navbar-link" data-nav-link>
+                            <span>Giỏ hàng</span>
                             <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
                         </a>
                     </li>
@@ -92,15 +100,29 @@
             </nav>
 
             <div class="header-action">
+                @if (string.IsNullOrEmpty(userId))
+                {
+                    <button class="search-btn" aria-label="Search">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
 
-                <button class="search-btn" aria-label="Search">
-                    <ion-icon name="search-outline"></ion-icon>
-                </button>
+                    <button class="btn btn-primary" onclick="window.location.href='./Login'">
+                        <span>Đăng nhập</span>
+                        <ion-icon name="log-in-outline"></ion-icon>
+                    </button>
+                }
+                else
+                {
+                    <button class="search-btn" aria-label="Search">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
 
-                <button class="btn btn-primary" onclick="window.location.href='./Login'">
-                    <span>Đăng nhập</span>
-                    <ion-icon name="log-in-outline"></ion-icon>
-                </button>
+                    <button class="btn btn-primary" onclick="window.location.href='./Logout'">
+                        <span>Logout</span>
+                        <ion-icon name="log-in-outline"></ion-icon>
+                    </button>
+                }
+
 
             </div>
 
@@ -135,7 +157,7 @@
                         Hãy đên với cửa hàng của chúng tôi và lựa chọn cho mình những con chim đẹp nhất cho mình 🐦
                     </p>
 
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" onclick="window.location.href='./ShowAllBirds'">
                         <span>Mua Ngay</span>
 
                         <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
@@ -166,8 +188,9 @@
                                 <h3 class="h4 item-title">An toàn</h3>
 
                                 <p class="item-text">
-                                    Sit amet consecte adiscine
-                                    eiusm temor ultrices.
+                                   Đảm bảo an toan cho người dùng trải
+                                   nghiệm 1 cảm giác an tâm khi mua chim
+                                   tại đây
                                 </p>
                             </div>
                         </li>
@@ -181,8 +204,8 @@
                                 <h3 class="h4 item-title">Đã kiểm định</h3>
 
                                 <p class="item-text">
-                                    Sit amet consecte adiscine
-                                    eiusm temor ultrices.
+                                    Đã được kiểm định đây đủ về chất
+                                    lượng của chim
                                 </p>
                             </div>
                         </li>
@@ -196,8 +219,9 @@
                                 <h3 class="h4 item-title">Chất lượng</h3>
 
                                 <p class="item-text">
-                                    Sit amet consecte adiscine
-                                    eiusm temor ultrices.
+                                   Chim luôn mạnh khỏe và
+                                   được chăm sóc ở môi trường
+                                   đầy đủ chất dinh dưỡng
                                 </p>
                             </div>
                         </li>
@@ -211,8 +235,9 @@
                                 <h3 class="h4 item-title">GIá hợp lý</h3>
 
                                 <p class="item-text">
-                                    Sit amet consecte adiscine
-                                    eiusm temor ultrices.
+                                    Giá cả phù hợp với túi tiền
+                                    của các bạn muốn nuôi và chăm sóc
+                                    những chú chim tại trang trại
                                 </p>
                             </div>
                         </li>
@@ -273,30 +298,7 @@
                             Còn chờ đợi gì nữa mà không chọn ngay <strong>Những con chim đẹp nhất</strong>
                         </h2>
 
-                        <ul class="tab-nav">
-
-                            <li>
-                                <button class="tab-btn active">Our Mission</button>
-                            </li>
-
-                            <li>
-                                <button class="tab-btn">Our Vision</button>
-                            </li>
-
-                            <li>
-                                <button class="tab-btn">Next Plan</button>
-                            </li>
-
-                        </ul>
-
                         <div class="tab-content">
-
-                            <p class="section-text">
-                                But I must explain to you how all this mistaken denouncing pleasure and praising pain was born and I
-                                will give you a
-                                complete account of the system expoundmaster
-                            </p>
-
                             <ul class="tab-list">
 
                                 <li class="tab-item">
@@ -304,7 +306,7 @@
                                         <ion-icon name="checkmark-circle"></ion-icon>
                                     </div>
 
-                                    <p class="tab-text">Charity For Foods</p>
+                                    <p class="tab-text">Sản phẩm khuyến mãi</p>
                                 </li>
 
                                 <li class="tab-item">
@@ -312,7 +314,7 @@
                                         <ion-icon name="checkmark-circle"></ion-icon>
                                     </div>
 
-                                    <p class="tab-text">Charity For Education</p>
+                                    <p class="tab-text">Tạo trải nghiệm tốt</p>
                                 </li>
 
                                 <li class="tab-item">
@@ -320,7 +322,7 @@
                                         <ion-icon name="checkmark-circle"></ion-icon>
                                     </div>
 
-                                    <p class="tab-text">Charity For Water</p>
+                                    <p class="tab-text">Chuyên nghiệp</p>
                                 </li>
 
                                 <li class="tab-item">
@@ -328,7 +330,7 @@
                                         <ion-icon name="checkmark-circle"></ion-icon>
                                     </div>
 
-                                    <p class="tab-text">Charity For Medical</p>
+                                    <p class="tab-text">Hổ trợ khách hàng hết mình</p>
                                 </li>
 
                             </ul>
@@ -378,7 +380,7 @@
 
 
 
-           
+
             <!--
               - #DONATE
             -->
@@ -400,38 +402,36 @@
 
                                     <div class="progress-wrapper">
                                         <p class="progress-text">
-                                            <span>Raised</span>
-
-                                            <data value="256">$256</data>
+                                            <span>Được yêu thích</span> 
                                         </p>
 
-                                        <data class="progress-value" value="83">83%</data>
+                                        <data class="progress-value" value="89">89%</data>
                                     </div>
 
                                     <div class="progress-box">
                                         <div class="progress"></div>
                                     </div>
 
-                                    <h3 class="h3 card-title">Raise Hand To Save Animals</h3>
+                                    <h3 class="h3 card-title">Nhanh tay rước bé về nhà</h3>
 
                                     <div class="card-wrapper">
 
                                         <p class="card-wrapper-text">
-                                            <span>Goal</span>
+                                            <span>Độ đẹp</span>
 
-                                            <data class="green" value="34562">$34562</data>
+                                            <data class="green" value="34562">*****</data>
                                         </p>
 
                                         <p class="card-wrapper-text">
-                                            <span>Raise</span>
+                                            <span>Yêu thích</span>
 
-                                            <data class="yellow" value="562">$562</data>
+                                            <data class="yellow" value="562">*****</data>
                                         </p>
 
                                         <p class="card-wrapper-text">
-                                            <span>To Go</span>
+                                            <span>Chất lương</span>
 
-                                            <data class="cyan" value="864">$864</data>
+                                            <data class="cyan" value="864">*****</data>
                                         </p>
 
                                     </div>
@@ -459,9 +459,7 @@
 
                                     <div class="progress-wrapper">
                                         <p class="progress-text">
-                                            <span>Raised</span>
-
-                                            <data value="256">$256</data>
+                                            <span>Được yêu thích</span>
                                         </p>
 
                                         <data class="progress-value" value="83">83%</data>
@@ -471,26 +469,26 @@
                                         <div class="progress"></div>
                                     </div>
 
-                                    <h3 class="h3 card-title">Raise Hand To Save Animals</h3>
+                                    <h3 class="h3 card-title">Nhanh tay rước bé về nhà</h3>
 
                                     <div class="card-wrapper">
 
                                         <p class="card-wrapper-text">
-                                            <span>Goal</span>
+                                            <span>Độ đẹp</span>
 
-                                            <data class="green" value="34562">$34562</data>
+                                            <data class="green" value="34562">*****</data>
                                         </p>
 
                                         <p class="card-wrapper-text">
-                                            <span>Raise</span>
+                                            <span>Yêu thích</span>
 
-                                            <data class="yellow" value="562">$562</data>
+                                            <data class="yellow" value="562">****</data>
                                         </p>
 
                                         <p class="card-wrapper-text">
-                                            <span>To Go</span>
+                                            <span>Chất lương</span>
 
-                                            <data class="cyan" value="864">$864</data>
+                                            <data class="cyan" value="864">*****</data>
                                         </p>
 
                                     </div>
@@ -518,43 +516,40 @@
 
                                     <div class="progress-wrapper">
                                         <p class="progress-text">
-                                            <span>Raised</span>
-
-                                            <data value="256">$256</data>
+                                            <span>Được yêu thích</span>
                                         </p>
-
-                                        <data class="progress-value" value="83">83%</data>
+                                        <data class="progress-value" value="93">93%</data>
                                     </div>
 
                                     <div class="progress-box">
                                         <div class="progress"></div>
                                     </div>
 
-                                    <h3 class="h3 card-title">Raise Hand To Save Animals</h3>
+                                    <h3 class="h3 card-title">Nhanh tay rước bé về nhà</h3>
 
                                     <div class="card-wrapper">
 
                                         <p class="card-wrapper-text">
-                                            <span>Goal</span>
+                                            <span>Độ đẹp</span>
 
-                                            <data class="green" value="34562">$34562</data>
+                                            <data class="green" value="34562">*****</data>
                                         </p>
 
                                         <p class="card-wrapper-text">
-                                            <span>Raise</span>
+                                            <span>Yêu thích</span>
 
-                                            <data class="yellow" value="562">$562</data>
+                                            <data class="yellow" value="562">****</data>
                                         </p>
 
                                         <p class="card-wrapper-text">
-                                            <span>To Go</span>
+                                            <span>Chất lương</span>
 
-                                            <data class="cyan" value="864">$864</data>
+                                            <data class="cyan" value="864">*****</data>
                                         </p>
 
                                     </div>
 
-                                    <button class="btn btn-secondary">
+                                    <button class="btn btn-primary" onclick="window.location.href='./ShowAllBirds'">
                                         <span>Mua</span>
 
                                         <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
@@ -577,43 +572,40 @@
 
                                     <div class="progress-wrapper">
                                         <p class="progress-text">
-                                            <span>Raised</span>
-
-                                            <data value="256">$256</data>
+                                            <span>Được yêu thích</span>
                                         </p>
-
-                                        <data class="progress-value" value="83">83%</data>
+                                        <data class="progress-value" value="99">99%</data>
                                     </div>
 
                                     <div class="progress-box">
                                         <div class="progress"></div>
                                     </div>
 
-                                    <h3 class="h3 card-title">Raise Hand To Save Animals</h3>
+                                    <h3 class="h3 card-title">Nhanh tay rước bé về nhà</h3>
 
                                     <div class="card-wrapper">
 
                                         <p class="card-wrapper-text">
-                                            <span>Goal</span>
+                                            <span>Độ đẹp</span>
 
-                                            <data class="green" value="34562">$34562</data>
+                                            <data class="green" value="34562">*****</data>
                                         </p>
 
                                         <p class="card-wrapper-text">
-                                            <span>Raise</span>
+                                            <span>Yêu thích</span>
 
-                                            <data class="yellow" value="562">$562</data>
+                                            <data class="yellow" value="562">*****</data>
                                         </p>
 
                                         <p class="card-wrapper-text">
-                                            <span>To Go</span>
+                                            <span>Chất lương</span>
 
-                                            <data class="cyan" value="864">$864</data>
+                                            <data class="cyan" value="864">*****</data>
                                         </p>
 
                                     </div>
 
-                                    <button class="btn btn-secondary">
+                                    <button class="btn btn-primary" onclick="window.location.href='./ShowAllBirds'">
                                         <span>Mua</span>
 
                                         <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
@@ -648,7 +640,7 @@
                     </p>
 
                     <h2 class="h2 section-title">
-                        What People Say About <strong>Our Organization</strong>
+                        Mọi người nói gì về <strong>Trang trại của chúng tôi</strong>
                     </h2>
 
                     <div class="testi-card">
@@ -659,14 +651,13 @@
 
                         <div>
                             <blockquote class="testi-text">
-                                Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem
-                                aperiam eaquesa
-                                quae abillo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo enimpsam voluptatem
+                                Trang trại có những chú chim tuyệt vời với những chú chim đẹp và khỏe mạnh.
+                                Tạo cảm giác thú vị khi nuôi một chú chim tuyệt vời khi mua hàng tại đây
                             </blockquote>
 
-                            <h3 class="testi-name">David S. Neuman</h3>
+                            <h3 class="testi-name"> Nguyễn Thiện Cao Duy</h3>
 
-                            <p class="testi-title">Business Manager</p>
+                            <p class="testi-title">Khách Hàng V.I.P</p>
                         </div>
 
                     </div>

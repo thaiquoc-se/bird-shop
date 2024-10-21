@@ -9,15 +9,16 @@ body {
     justify-content: start;
     align-items: center;
     min-height: 100vh;
-    background: url('../img/background.png');
+    background: url('../img/background.png') no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .warapper {
     position: relative;
-    width: 400px;
-    height: auto;
+    width: 450px;
+    max-height: 910px;
+    height: 500px;
     margin-left: 100px;
     background: transparent;
     border: 2px solid rgba(225, 225, 225, .5);
@@ -32,7 +33,10 @@ body {
 }
 
     .warapper.active {
-        height: 600px;
+        position: relative;
+        height: 910px;
+        width: 450px;
+        margin: 20px 100px;
     }
 
     .warapper .form-box {
@@ -47,18 +51,7 @@ body {
 
     .warapper.active .form-box.login {
         transition: none;
-        transform: translateX(-400px);
-    }
-
-    .warapper .form-box.register {
-        position: absolute;
-        transition: none;
-        transform: translateX(400px);
-    }
-
-    .warapper.active .form-box.register {
-        transition: transform .18s ease;
-        transform: translateX(0);
+        transform: translateX(-450px);
     }
 
 .form-box h2 {
@@ -87,6 +80,7 @@ body {
     height: 50px;
     border-bottom: 2px solid #000;
     margin: 30px 0;
+    padding-top: 5px;
 }
 
     .input-box label {
@@ -114,12 +108,12 @@ body {
         font-size: 1em;
         color: #000;
         font-weight: 600;
-        padding: 0 35px 0 5px;
+        padding-right: 25px;
     }
 
     .input-box .icon {
         position: absolute;
-        right: 8px;
+        right: 0px;
         font-size: 1.2em;
         line-height: 57px;
     }

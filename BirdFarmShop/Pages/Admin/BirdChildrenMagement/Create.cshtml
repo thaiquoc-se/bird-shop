@@ -1,0 +1,153 @@
+﻿@page
+@model BirdFarmShop.Pages.Admin.BirdChildrenMagement.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@*<h1>Create</h1>
+
+<h4>Tblchildrenbird</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.BirdId" class="control-label"></label>
+                <select asp-for="Tblchildrenbird.BirdId" class ="form-control" asp-items="ViewBag.BirdId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.ChildrenBirdName" class="control-label"></label>
+                <input asp-for="Tblchildrenbird.ChildrenBirdName" class="form-control" />
+                <span asp-validation-for="Tblchildrenbird.ChildrenBirdName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.ChildrenBirdOfType" class="control-label"></label>
+                <input asp-for="Tblchildrenbird.ChildrenBirdOfType" class="form-control" />
+                <span asp-validation-for="Tblchildrenbird.ChildrenBirdOfType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.Price" class="control-label"></label>
+                <input asp-for="Tblchildrenbird.Price" class="form-control" />
+                <span asp-validation-for="Tblchildrenbird.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.StatusChildrenBird" class="control-label"></label>
+                <input asp-for="Tblchildrenbird.StatusChildrenBird" class="form-control" />
+                <span asp-validation-for="Tblchildrenbird.StatusChildrenBird" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tblchildrenbird.Image" class="control-label"></label>
+                <input asp-for="Tblchildrenbird.Image" class="form-control" />
+                <span asp-validation-for="Tblchildrenbird.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+*@
+<head>
+    <title>edit Bird</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- GG Font -->
+    <link as="font" crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoATitleCond-Regular-Web.woff2"
+          rel="preload" type="font/woff2" />
+    <link as="font" crossorigin
+          href="https://assets.oneweb.mercedes-benz.com/plugin/workbench/fonts/1.4.0/WOFF2/MBCorpoSText-Regular-Web.woff2"
+          rel="preload" type="font/woff2" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Animation css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./lib/WOW-master/css/libs/animate.css" />
+
+    <link rel="stylesheet" href="~/css/create.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <section class="box">
+            <div class="container">
+                <form method="post" class="profile">
+                    <div class="profile__right">
+                        <h3>Create</h3>
+                        <div class="info_data">
+                            <div class="info_data-left">
+                                <div class="info">
+                                    <h5>Bird Id:</h5>
+                                    <input asp-for="Tblchildrenbird.BirdId" type="text" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="Tblchildrenbird.BirdId" class="text-danger"></span>
+                                </div>
+                                <div class="info">
+                                    <h5>BirdchildreName:</h5>
+                                    <input asp-for="Tblchildrenbird.ChildrenBirdName" type="text" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="Tblchildrenbird.ChildrenBirdName" class="text-danger"></span>
+                                </div>
+                                <div class="info">
+                                    <h5>ChildrenBirdOfType:</h5>
+                                    <input asp-for="Tblchildrenbird.ChildrenBirdOfType" type="text" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="Tblchildrenbird.ChildrenBirdOfType" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="info_data-right">
+
+                                <div class="info">
+                                    <h5>BirdChildrenStatus:</h5>
+                                    <input asp-for="Tblchildrenbird.StatusChildrenBird" type="text" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="Tblchildrenbird.StatusChildrenBird" class="text-danger"></span>
+                                </div>
+                                <div class="info">
+                                    <h5>BirdPrice:</h5>
+                                    <input asp-for="Tblchildrenbird.Price" type="text" class="form-control w-60 mb-3">
+                                    <span asp-validation-for="Tblchildrenbird.Price" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <button type="submit" value="Save" class="btn btn-success"><i class="fa-regular fa-pen-to-square"></i>Create</button>
+                        </div>
+
+                    </div>
+
+                </form>
+
+
+                <a class="back" asp-page="./ShowUserList"><button class="btn btn-primary"><i class="fa-solid fa-backward"></i>Back to list</button></a>
+
+
+            </div>
+        </section>
+
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
